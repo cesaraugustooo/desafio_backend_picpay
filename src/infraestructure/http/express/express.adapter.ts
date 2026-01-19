@@ -12,11 +12,11 @@ export class ExpresAdapter implements IHtppContext{
         }
     }
 
-    send(httpStatus: number, data: any): void {
-        this.response.status(httpStatus).json(data)
+    send(httpStatus: number, data: any): any {
+        return this.response.status(httpStatus).json(data)
     }
 
-    next(middleware: any): void {
-        this.nextMiddleware(middleware);
+    next(middleware: any): any {
+        return this.nextMiddleware(middleware);
     }
 }
