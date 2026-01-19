@@ -40,5 +40,14 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
+    "paths": {
+      "@useCases/*": ["./src/useCases/*"],
+      "@domain/*": ["./src/domain/*"],
+      "@infra/*": ["./src/infraestructure/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
+      "@middlewares/*": ["./src/infraestructure/middlewares/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
   }
 }
