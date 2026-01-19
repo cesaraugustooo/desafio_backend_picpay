@@ -1,4 +1,4 @@
-import type { User } from "../domain/entitys/User.js";
+import type { User } from "@domain/entitys/User.js";
 
 export interface Request {
     user: User | any,

@@ -1,7 +1,7 @@
 import { Router, type NextFunction, type Request as expressRequest, type Response } from "express";
-import { createUserController } from "../../../useCases/user/factory.js";
+import { createUserController } from "@useCases/user/factory.js";
 import { ExpresAdapter } from "./express.adapter.js";
-import { validated } from "../../middlewares/validated.js";
+import { validated } from "@middlewares/validated.js";
 import { CreateUserSchema } from "./schemas/create.user.schema.js";
 
 const app: Router = Router()
