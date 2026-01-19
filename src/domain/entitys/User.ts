@@ -7,10 +7,6 @@ export class User {
         public password: string,
         public saldo: number
     ) {}
-
-    meuSaldo(){
-        return this.saldo;
-    }
 }
 
 export interface CreateIUser {
