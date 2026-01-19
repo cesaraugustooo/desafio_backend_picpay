@@ -1,7 +1,7 @@
 import { AppError } from "../../../errorHandler.js";
 import { hash } from "@utils/bcript.js";
-import type { Irepository } from "@domain/repositorys/repository.interface.js";
-import { User, type CreateIUser } from "@domain/entitys/User.js";
+import type { Irepository } from "@domain/repositorys/user.repository.interface.js";
+import { User, type CreateIUser, type ResponseUser } from "@domain/entitys/User.js";
 
 export class CreateUserCase {
     constructor(
