@@ -1,7 +1,7 @@
-import type { CreateIUser, User } from "../entitys/User.js";
+import type { CreateIUser, ResponseUser, User } from "../entitys/User.js";
 
 export interface Irepository {
-    create(data: User): Promise<User>,
-    findByEmail(email: string): Promise<User | null>,
-    findByCpf(cpf: string): Promise<User | null> 
+    create(data: User): Promise<ResponseUser>,
+    findByEmail(email: string): Promise<ResponseUser | null>,
+    findByCpf(cpf: string): Promise<ResponseUser | null> 
 }
