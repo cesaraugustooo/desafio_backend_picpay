@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+model User {
+  id String @id @default(uuid())
+  name String
+  email String @unique
+  cpf String @unique
+  password String
+  saldo Float
+
+  payer Transaction[] @relation("payer")
+  payee Transaction[] @relation("payee")
+}
+
+model Transaction {
+  id String @id @default(uuid())
+  value Int
+  payer_id String
+  payer User @relation("payer",fields: [payer_id], references: [id])
+  payee_id String
+  payee User @relation("payee",fields: [payee_id], references: [id])
+}
