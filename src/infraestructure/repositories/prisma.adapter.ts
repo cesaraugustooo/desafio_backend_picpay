@@ -1,5 +1,5 @@
 import { prisma } from "../../../prisma/database.js";
-import type { Irepository } from "@domain/repositorys/repository.interface.js";
+import type { Irepository } from "@domain/repositorys/user.repository.interface.js";
 import { User, type CreateIUser, type ResponseUser } from "@domain/entitys/User.js";
 
 export class PrismaRepository implements Irepository { 
