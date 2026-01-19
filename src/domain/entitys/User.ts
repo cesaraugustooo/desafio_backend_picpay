@@ -1,12 +1,25 @@
+import { randomUUID } from "node:crypto";
+
 export class User {
+    public readonly id: string;
+    private saldo: number;
+    
     constructor(
-        public id: string,
         public name: string,
         public email: string,
         public cpf: string,
         public password: string,
-        public saldo: number
-    ) {}
+        id?: string,
+        saldoExistente?: number
+    ) {
+        this.id = id ?? randomUUID();  
+        
+        this.saldo = saldoExistente ?? 0 
+    }
+
+    getSaldo(): number{
+        return this.saldo;
+    }
 }
 
 export interface CreateIUser {
