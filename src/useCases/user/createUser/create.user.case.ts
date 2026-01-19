@@ -1,7 +1,7 @@
 import { AppError } from "../../../errorHandler.js";
 import { hash } from "../../../utils/bcript.js";
 import type { Irepository } from "../../../domain/repositorys/repository.interface.js";
-import type { CreateIUser, User } from "../../../domain/entitys/User.js";
+import { User, type CreateIUser } from "../../../domain/entitys/User.js";
 
 export class CreateUserCase {
     constructor(
@@ -21,7 +21,14 @@ export class CreateUserCase {
             throw new AppError("cpf ja cadastrado.", 409);
         }
 
-        const user = await this.repository.create({ ...data, password: await hash(data.password) });
+        const user = new User(
+            data.name, 
+            data.email, 
+            data.cpf, 
+            await hash(data.password)
+        );
+
+        const createUser = await this.repository.create(user);
 
         return user;
     }
