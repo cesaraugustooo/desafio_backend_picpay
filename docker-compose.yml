@@ -6,7 +6,7 @@ services:
     volumes:
       - .:/app
     command: 
-      sh -c "npx prisma migrate deploy && npm run dev"
+      sh -c "npx prisma migrate deploy && npx prisma generate && npm run dev"
     depends_on:
       db:
         condition: service_healthy
