@@ -8,6 +8,6 @@ export interface Request {
 
 export interface IHtppContext {
     getRquest(): Request;
-    send(httpStatus: number,data: any): void;
-    next(middleware: any): void;
+    send(httpStatus: number,data: any): any;
+    next(middleware: any): any;
 }
