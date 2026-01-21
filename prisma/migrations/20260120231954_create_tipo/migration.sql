@@ -5,7 +5,7 @@
 
 */
 -- CreateEnum
-CREATE TYPE "Tipo" AS ENUM ('comum', 'logista');
+CREATE TYPE "Tipo" AS ENUM ('comum', 'lojista');
 
 -- AlterTable
 ALTER TABLE "User" ADD COLUMN     "tipo" "Tipo" NOT NULL;

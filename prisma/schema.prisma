@@ -9,7 +9,7 @@ datasource db {
 
 enum Tipo {
   comum
-  logista
+  lojista
 }
 
 model User {
