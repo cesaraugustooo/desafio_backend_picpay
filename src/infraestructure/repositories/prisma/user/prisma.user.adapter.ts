@@ -1,6 +1,6 @@
 import { prisma } from "../../../../../prisma/database.js";
 import type { Irepository } from "../../../../aplication/repositorys/user.repository.interface.js";
-import { User, type CreateIUser, type ResponseUser, type ValueInterface } from "@domain/entitys/User.js";
+import { User, type CreateIUser, type ResponseUser, type UserByContructor } from "@domain/entitys/User.js";
 
 export class PrismaRepository implements Irepository { 
 
@@ -10,7 +10,7 @@ export class PrismaRepository implements Irepository {
         return user;
     }
 
-    async findByCpf(cpf: string): Promise<ResponseUser | null> {
+    async findByCpf(cpf: string): Promise<UserByContructor |null> {
         const user = await prisma.user.findUnique({where:{cpf}});
 
         if(!user){
@@ -20,7 +20,7 @@ export class PrismaRepository implements Irepository {
         return user;
     }
 
-    async findByEmail(email: string): Promise<ResponseUser | null> {
+    async findByEmail(email: string): Promise< UserByContructor |null> {
         const user = await prisma.user.findUnique({where:{email}});
 
         if(!user){
@@ -30,7 +30,7 @@ export class PrismaRepository implements Irepository {
         return user;
     }
 
-    async findById(id: string): Promise<ResponseUser | null> {
+    async findById(id: string): Promise<UserByContructor | null> {
         const user = await prisma.user.findUnique({where:{id}});
 
         if(!user){
@@ -40,8 +40,8 @@ export class PrismaRepository implements Irepository {
         return user;
     }
 
-    async updateUser(id: string, value: ValueInterface,tx: any): Promise<boolean> {
-        await tx.user.update({where:{id},data:{ value }})
+    async updateUser(id: string, value: number,tx: any): Promise<boolean> {
+        await tx.user.update({where:{id},data:{ saldo: value }})
         return true
     }
 }
