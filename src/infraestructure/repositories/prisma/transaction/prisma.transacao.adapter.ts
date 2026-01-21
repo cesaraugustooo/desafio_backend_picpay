@@ -3,8 +3,7 @@ import type { ITransactionRepository } from "../../../../aplication/repositorys/
 
 export class PrismaTransactionRepository implements ITransactionRepository {
 
-    async create(data: ITransactionCreate, payer: string, tx: any): Promise<ITransaction> {
-        return await tx.transaction.craete(data);
+    async create(data: ITransactionCreate, tx: any): Promise<ITransaction> {
+        return await tx.transaction.create({data});
     }
-
-}
+} 
