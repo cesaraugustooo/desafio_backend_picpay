@@ -13,11 +13,11 @@ export class User {
         public tipo: "comum" | "lojista",
         password: string, 
         id?: string,
-        saldoExistente?: number
+        saldo?: number
     ) {
         this.id = id ?? randomUUID();
         this._password = password; 
-        this._saldo = saldoExistente ?? 0;
+        this._saldo = saldo ?? 50;
     }
 
     get password() { 
@@ -48,11 +48,27 @@ export class User {
         if(value > this.saldo){
             throw new AppError("saldo insuficiente para completar a transação.",401);
         }
+
+        this._saldo -= value;
     }
 
-    public creadito(value: number) {
+    public credito(value: number) {
         this._saldo += value
     }
+
+    static contruct (data: UserByContructor){
+        return new User(data.name, data.email, data.cpf, data.tipo, data.password, data.id, data.saldo);
+    }
+}
+
+export interface UserByContructor {
+    id: string,
+    name: string,
+    email: string,
+    cpf: string,
+    tipo: "comum" | "lojista",
+    password: string,
+    saldo: number
 }
 
 export interface CreateIUser {
@@ -68,8 +84,4 @@ export interface ResponseUser {
     email: string,
     cpf: string,
     saldo?: number
-}
-
-export interface ValueInterface {
-    saldo: number
 }
