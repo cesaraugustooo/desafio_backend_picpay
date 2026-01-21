@@ -1,7 +1,7 @@
-import { AppError } from "../../../../errorHandler.js";
 import { hash } from "@domain/utils/bcript.js";
 import type { Irepository } from "../../../repositorys/user.repository.interface.js";
 import { User, type CreateIUser, type ResponseUser } from "@domain/entitys/User.js";
+import { DomainError } from "@domain/errorHandler.js";
 
 export class CreateUserCase {
     constructor(
@@ -14,11 +14,11 @@ export class CreateUserCase {
         const verifyCpf = await this.repository.findByCpf(data.cpf);
 
         if (verifyEmail) {
-            throw new AppError("email ja cadastrado.", 409);
+            throw new DomainError("email ja cadastrado.", 409);
         }
 
         if (verifyCpf) {
-            throw new AppError("cpf ja cadastrado.", 409);
+            throw new DomainError("cpf ja cadastrado.", 409);
         }
 
         const user = new User(

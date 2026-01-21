@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { AppError } from "../../errorHandler.js";
+import { DomainError } from "@domain/errorHandler.js";
 
 export class User {
     public readonly id: string;
@@ -42,11 +42,11 @@ export class User {
 
     public debito(value: number) {
         if(this.tipo == "lojista"){
-            throw new AppError("apenas usuario comuns podem debitar.",401);
+            throw new DomainError("apenas usuario comuns podem debitar.",401);
         }
 
         if(value > this.saldo){
-            throw new AppError("saldo insuficiente para completar a transação.",401);
+            throw new DomainError("saldo insuficiente para completar a transação.",401);
         }
 
         this._saldo -= value;

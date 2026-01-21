@@ -1,15 +1,17 @@
 import type { ITransaction, ITransactionCreate } from "@domain/entitys/Transaction.js";
 import type { ITransactionRepository } from "@aplication/repositorys/transaction.repository.interface.js";
 import type { Irepository } from "@aplication/repositorys/user.repository.interface.js";
-import { AppError } from "../../../../errorHandler.js";
 import type { TransactionDBInterface } from "@controllers/interfaces/transaction.interface.js";
 import { User, type ResponseUser } from "@domain/entitys/User.js";
+import { DomainError } from "@domain/errorHandler.js";
+import type { AuthorizeTransactionCase } from "@useCases/services/authorizeTransactionCase/authorize.transaction.case.js";
 
 export class CreateTransactionCase {
     constructor (
         private readonly transactionRepository: ITransactionRepository,
         private readonly userRepository: Irepository,
-        private readonly transactionManager: TransactionDBInterface
+        private readonly transactionManager: TransactionDBInterface,
+        private readonly transactionAuthorizeMock: AuthorizeTransactionCase
     ) {}
 
     async create(data: ITransactionCreate){
@@ -17,11 +19,11 @@ export class CreateTransactionCase {
         const payee = await this.userRepository.findById(data.payee_id);
 
         if(!payer){
-            throw new AppError("payer nao encontrado",404);
+            throw new DomainError("payer nao encontrado",404);
         }
 
         if(!payee){
-            throw new AppError("payee nao encontrado",404);
+            throw new DomainError("payee nao encontrado",404);
         }
 
         const payerInstance = User.contruct(payer);
@@ -33,6 +35,8 @@ export class CreateTransactionCase {
 
             await this.userRepository.updateUser(payerInstance.id, payerInstance.saldo, tx);
             await this.userRepository.updateUser(payeeInstance.id, payeeInstance.saldo, tx);
+
+            await this.transactionAuthorizeMock.handle();
 
             return await this.transactionRepository.create(data,tx);
             

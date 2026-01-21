@@ -1,8 +1,9 @@
 import type { NextFunction,  Request, Response } from "express";
 import { AppError } from "../../errorHandler.js";
+import { DomainError } from "@domain/errorHandler.js";
 
 export const errorMiddleware = (error: Error,req: Request,res: Response,next: NextFunction) => {
-    if(error instanceof AppError){
+    if(error instanceof AppError || error instanceof DomainError){
         return res.status(error.statusCode).json({message: error.message});
     }
     console.log(error);
