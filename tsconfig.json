@@ -41,13 +41,15 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
     "paths": {
-      "@useCases/*": ["./src/useCases/*"],
+      "@useCases/*": ["./src/aplication/useCases/*"],
       "@domain/*": ["./src/domain/*"],
       "@infra/*": ["./src/infraestructure/*"],
       "@shared/*": ["./src/shared/*"],
-      "@interfaces/*": ["./src/interfaces/*"],
+      "@interfaces/*": ["./src/aplication/useCases/controllers/interfaces/*"],
       "@middlewares/*": ["./src/infraestructure/middlewares/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@utils/*": ["./src/domain/utils/*"],
+      "@controllers/*": ["./src/aplication/controllers/*"],
+      "@aplication/*": ["./src/aplication/*"]
     }
   }
 }
