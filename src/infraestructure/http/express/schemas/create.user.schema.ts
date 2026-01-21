@@ -1,5 +1,5 @@
 import z, { email, string } from "zod";
-import type { CraeteUserDTO } from "../../../../aplication/useCases/controllers/user/create.user.dto.js";
+import type { CraeteUserDTO } from "@controllers/user/create.user.dto.js";
 
 export const CreateUserSchema: z.ZodType<CraeteUserDTO> = z.object({
     name: string().max(191),
