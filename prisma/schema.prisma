@@ -7,6 +7,10 @@ datasource db {
   provider = "postgresql"
 }
 
+enum Tipo {
+  comum
+  logista
+}
 
 model User {
   id String @id @default(uuid())
@@ -15,7 +19,7 @@ model User {
   cpf String @unique
   password String
   saldo Float
-
+  tipo Tipo
   payer Transaction[] @relation("payer")
   payee Transaction[] @relation("payee")
 }
