@@ -1,6 +1,6 @@
-import { AppError } from "../../../errorHandler.js";
-import { hash } from "@utils/bcript.js";
-import type { Irepository } from "@domain/repositorys/user.repository.interface.js";
+import { AppError } from "../../../../errorHandler.js";
+import { hash } from "@domain/utils/bcript.js";
+import type { Irepository } from "../../../repositorys/user.repository.interface.js";
 import { User, type CreateIUser, type ResponseUser } from "@domain/entitys/User.js";
 
 export class CreateUserCase {
@@ -24,7 +24,8 @@ export class CreateUserCase {
         const user = new User(
             data.name, 
             data.email, 
-            data.cpf, 
+            data.cpf,
+            data.tipo,
             await hash(data.password)
         );
 

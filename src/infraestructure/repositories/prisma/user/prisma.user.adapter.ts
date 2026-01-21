@@ -1,6 +1,6 @@
-import { prisma } from "../../../prisma/database.js";
-import type { Irepository } from "@domain/repositorys/user.repository.interface.js";
-import { User, type CreateIUser, type ResponseUser } from "@domain/entitys/User.js";
+import { prisma } from "../../../../../prisma/database.js";
+import type { Irepository } from "../../../../aplication/repositorys/user.repository.interface.js";
+import { User, type CreateIUser, type ResponseUser, type ValueInterface } from "@domain/entitys/User.js";
 
 export class PrismaRepository implements Irepository { 
 
@@ -28,5 +28,20 @@ export class PrismaRepository implements Irepository {
         }
 
         return user;
+    }
+
+    async findById(id: string): Promise<ResponseUser | null> {
+        const user = await prisma.user.findUnique({where:{id}});
+
+        if(!user){
+            return null;
+        }
+
+        return user;
+    }
+
+    async updateUser(id: string, value: ValueInterface,tx: any): Promise<boolean> {
+        await tx.user.update({where:{id},data:{ value }})
+        return true
     }
 }

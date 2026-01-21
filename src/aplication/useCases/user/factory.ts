@@ -1,6 +1,6 @@
-import { PrismaRepository } from "@infra/repositories/prisma.adapter.js";
+import { PrismaRepository } from "@infra/repositories/prisma/user/prisma.user.adapter.js";
 import { CreateUserCase } from "./createUser/create.user.case.js";
-import { UserController } from "./createUser/create.user.controller.js";
+import { UserController } from "@controllers/user/create.user.controller.js";
 
 // Criar usuario
 

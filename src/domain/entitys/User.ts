@@ -1,4 +1,5 @@
 import { randomUUID } from "node:crypto";
+import { AppError } from "../../errorHandler.js";
 
 export class User {
     public readonly id: string;
@@ -9,6 +10,7 @@ export class User {
         public name: string,
         public email: string,
         public cpf: string,
+        public tipo: "comum" | "lojista",
         password: string, 
         id?: string,
         saldoExistente?: number
@@ -33,8 +35,23 @@ export class User {
             password: this.password,
             cpf: this.cpf,
             email: this.email,
-            saldo: this.saldo
+            saldo: this.saldo,
+            tipo: this.tipo
         }
+    }
+
+    public debito(value: number) {
+        if(this.tipo == "lojista"){
+            throw new AppError("apenas usuario comuns podem debitar.",401);
+        }
+
+        if(value > this.saldo){
+            throw new AppError("saldo insuficiente para completar a transação.",401);
+        }
+    }
+
+    public creadito(value: number) {
+        this._saldo += value
     }
 }
 
@@ -42,6 +59,7 @@ export interface CreateIUser {
     name: string,
     email: string,
     cpf: string,
+    tipo: "comum" | "lojista",
     password: string,
 }
 
@@ -49,4 +67,9 @@ export interface ResponseUser {
     name: string,
     email: string,
     cpf: string,
+    saldo?: number
+}
+
+export interface ValueInterface {
+    saldo: number
 }

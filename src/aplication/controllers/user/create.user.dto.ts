@@ -3,6 +3,7 @@ import z, { email, string } from "zod";
 export interface CraeteUserDTO {
     name: string,
     email: string,
+    tipo :"comum" | "lojista",
     password: string,
     cpf: string
 }
@@ -11,6 +12,7 @@ export interface IResponseCreateUserDTO {
     id: string,
     name: string,
     email: string,
+    tipo :"comum" | "lojista",
     cpf: string,
 }
 
@@ -19,6 +21,7 @@ export function ResponseCreateUserDTO(data: IResponseCreateUserDTO): IResponseCr
         id: data.id,
         name: data.name,
         email: data.email,
+        tipo: data.tipo,
         cpf: data.cpf
     }
 }
