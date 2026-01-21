@@ -1,4 +1,4 @@
-import type { IHtppContext } from "../interfaces/controller.interface.js";
+import type { IHtppContext } from "../../ports/controllers/controller.interface.js";
 import type { CreateUserCase } from "@useCases/user/createUser/create.user.case.js";
 import { ResponseCreateUserDTO } from "./create.user.dto.js";
 

@@ -1,22 +1,16 @@
+import type { TransactionAuthorizeGateway } from "@aplication/ports/gateways/transaction.authorize.gateway.js";
 import { DomainError } from "@domain/errorHandler.js";
 
-interface Data {
-    authorization: boolean
-}
+export class AuthorizeTransactionCase{
 
-interface IAuthorizeTransaction {
-    status: "success" | "fail"
-    data: Data
-}
-
-export class AuthorizeTransactionCase {
-    constructor (private url = "https://util.devi.tools/api/v2/authorize") {}
+    constructor (
+        private readonly authorize: TransactionAuthorizeGateway
+    ) {}
 
     async handle(): Promise<void> {
-        const api = await fetch(this.url);
-        const response = await api.json() as IAuthorizeTransaction;
+        const authorize = await this.authorize.authorize();
 
-        if(response.data.authorization == false){
+        if(authorize === false){
             throw new DomainError("Transacao nao autorizada pelo autorizador externo",401);
         }
     }

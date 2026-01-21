@@ -1,5 +1,5 @@
 import { hash } from "@domain/utils/bcript.js";
-import type { Irepository } from "../../../repositorys/user.repository.interface.js";
+import type { Irepository } from "../../../ports/repositorys/user.repository.interface.js";
 import { User, type CreateIUser, type ResponseUser } from "@domain/entitys/User.js";
 import { DomainError } from "@domain/errorHandler.js";
 
