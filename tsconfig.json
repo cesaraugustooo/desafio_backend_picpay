@@ -45,12 +45,11 @@
       "@domain/*": ["./src/domain/*"],
       "@infra/*": ["./src/infraestructure/*"],
       "@shared/*": ["./src/shared/*"],
-      "@interfaces/*": ["./src/aplication/useCases/controllers/interfaces/*"],
       "@middlewares/*": ["./src/infraestructure/middlewares/*"],
       "@utils/*": ["./src/domain/utils/*"],
       "@controllers/*": ["./src/aplication/controllers/*"],
       "@aplication/*": ["./src/aplication/*"],
-      "@ports/*": ["src/aplication/interfaces/*"]
+      "@interfaces/*": ["./src/aplication/interfaces/*"]
     }
   }
 }
