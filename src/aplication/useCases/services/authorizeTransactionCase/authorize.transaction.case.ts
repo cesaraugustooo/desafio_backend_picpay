@@ -1,4 +1,4 @@
-import type { TransactionAuthorizeGateway } from "@aplication/ports/gateways/transaction.authorize.gateway.js";
+import type { TransactionAuthorizeGateway } from "@aplication/interfaces/gateways/transaction.authorize.gateway.js";
 import { DomainError } from "@domain/errorHandler.js";
 
 export class AuthorizeTransactionCase{

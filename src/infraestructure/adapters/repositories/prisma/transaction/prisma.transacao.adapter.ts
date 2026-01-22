@@ -1,5 +1,5 @@
 import type { ITransactionCreate, ITransaction } from "@domain/entitys/Transaction.js";
-import type { ITransactionRepository } from "../../../../../aplication/ports/repositorys/transaction.repository.interface.js";
+import type { ITransactionRepository } from "../../../../../aplication/interfaces/repositorys/transaction.repository.interface.js";
 
 export class PrismaTransactionRepository implements ITransactionRepository {
 

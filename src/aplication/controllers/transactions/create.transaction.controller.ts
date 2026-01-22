@@ -1,4 +1,4 @@
-import type { IHtppContext } from "@aplication/ports/controllers/controller.interface.js";
+import type { IHtppContext } from "@aplication/interfaces/controllers/controller.interface.js";
 import type { ITransaction } from "@domain/entitys/Transaction.js";
 import type { CreateTransactionCase } from "@useCases/transactions/createTransaction/create.transaction.case.js";
 import type { ResponseTransactionDTO } from "./create.transaction.dto.js";

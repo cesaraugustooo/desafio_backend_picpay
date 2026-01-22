@@ -3,7 +3,7 @@
 import "dotenv/config";
 import { defineConfig } from "prisma/config";
 
-const databaseUrl: string = process.env["DATABASE_URL"]
+const databaseUrl: string | undefined = process.env["DATABASE_URL"]
 
 if(!databaseUrl){
   throw new Error("Database Url Invalido")

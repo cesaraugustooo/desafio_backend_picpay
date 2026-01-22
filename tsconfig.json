@@ -50,7 +50,7 @@
       "@utils/*": ["./src/domain/utils/*"],
       "@controllers/*": ["./src/aplication/controllers/*"],
       "@aplication/*": ["./src/aplication/*"],
-      "@ports/*": ["./src/aplication/ports/*"]
+      "@ports/*": ["src/aplication/interfaces/*"]
     }
   }
 }

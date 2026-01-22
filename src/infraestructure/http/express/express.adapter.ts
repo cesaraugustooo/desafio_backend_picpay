@@ -1,4 +1,4 @@
-import type { IHtppContext, Request } from "@aplication/ports/controllers/controller.interface.js";
+import type { IHtppContext, Request } from "@aplication/interfaces/controllers/controller.interface.js";
 import { type Response, type Request as RequestExpress, type NextFunction } from "express";
 
 export class ExpresAdapter implements IHtppContext{

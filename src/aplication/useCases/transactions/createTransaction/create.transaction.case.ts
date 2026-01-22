@@ -1,7 +1,7 @@
 import type { ITransaction, ITransactionCreate } from "@domain/entitys/Transaction.js";
-import type { ITransactionRepository } from "@aplication/ports/repositorys/transaction.repository.interface.js";
-import type { Irepository } from "@aplication/ports/repositorys/user.repository.interface.js";
-import type { TransactionDBInterface } from "@aplication/ports/transaction.interface.js";
+import type { ITransactionRepository } from "@aplication/interfaces/repositorys/transaction.repository.interface.js";
+import type { Irepository } from "@aplication/interfaces/repositorys/user.repository.interface.js";
+import type { TransactionDBInterface } from "@aplication/interfaces/transaction.interface.js";
 import { User, type ResponseUser } from "@domain/entitys/User.js";
 import { DomainError } from "@domain/errorHandler.js";
 import type { AuthorizeTransactionCase } from "@useCases/services/authorizeTransactionCase/authorize.transaction.case.js";

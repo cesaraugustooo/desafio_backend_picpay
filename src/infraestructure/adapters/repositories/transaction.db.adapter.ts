@@ -1,4 +1,4 @@
-import type { TransactionDBInterface } from "@aplication/ports/transaction.interface.js";
+import type { TransactionDBInterface } from "@aplication/interfaces/transaction.interface.js";
 import { prisma } from "../../../../prisma/database.js";
 
 export class PrismaTransactionManager implements TransactionDBInterface {
