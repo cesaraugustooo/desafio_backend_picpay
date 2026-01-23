@@ -6,6 +6,7 @@ export interface UserByToken {
     email: string,
     saldo: number
 }
+
 export interface ITransactionRepository {
     create(data: ITransactionCreate, tx: any): Promise<ITransaction>;
     getByUser(user: UserByToken): Promise<ITransaction[]> 
