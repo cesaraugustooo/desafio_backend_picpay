@@ -1,5 +1,5 @@
 import { PrismaTransactionRepository } from "@infra/adapters/repositories/prisma/transaction/prisma.transacao.adapter.js";
-import { CreateTransactionCase } from "./createTransaction/create.transaction.case.js";
+import { CreateTransactionCase } from "../../aplication/useCases/transactions/createTransaction/create.transaction.case.js";
 import { PrismaRepository } from "@infra/adapters/repositories/prisma/user/prisma.user.adapter.js";
 import { PrismaTransactionManager } from "@infra/adapters/repositories/transaction.db.adapter.js";
 import { TransactionController } from "@controllers/transactions/create.transaction.controller.js";

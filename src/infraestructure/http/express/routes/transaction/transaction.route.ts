@@ -1,4 +1,4 @@
-import { CreateTransactionController } from "@useCases/transactions/factory.js";
+import { CreateTransactionController } from "@factorys/Transactionfactory.js";
 import { Router, type Request, type Response, type NextFunction } from "express";
 import { ExpresAdapter } from "../../express.adapter.js";
 
