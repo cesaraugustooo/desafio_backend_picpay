@@ -1,11 +1,5 @@
 import type { ITransaction, ITransactionCreate, Transaction } from "@domain/entitys/Transaction.js";
-
-export interface UserByToken {
-    id: string,
-    name: string,
-    email: string,
-    saldo: number
-}
+import type { UserByToken } from "../user.by.token.js";
 
 export interface ITransactionRepository {
     create(data: ITransactionCreate, tx: any): Promise<ITransaction>;

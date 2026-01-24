@@ -1,6 +1,7 @@
 import type { Carteira } from "@aplication/interfaces/carteira.interface.js";
-import type { ITransactionRepository, UserByToken } from "@aplication/interfaces/repositorys/transaction.repository.interface.js";
+import type { ITransactionRepository } from "@aplication/interfaces/repositorys/transaction.repository.interface.js";
 import type { Irepository } from "@aplication/interfaces/repositorys/user.repository.interface.js";
+import type { UserByToken } from "@aplication/interfaces/user.by.token.js";
 
 export class GetCarteiraUseCase {
     constructor(
