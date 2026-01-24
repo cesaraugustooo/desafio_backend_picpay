@@ -1,4 +1,4 @@
-import { AuthorizeTransactionCase } from "@useCases/services/authorizeTransactionCase/authorize.transaction.case.js";
+import { AuthorizeTransactionCase } from "@useCases/transactions/authorizeTransactionCase/authorize.transaction.case.js";
 
 const MokClass = new AuthorizeTransactionCase();
 
