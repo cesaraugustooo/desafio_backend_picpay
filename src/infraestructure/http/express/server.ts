@@ -2,6 +2,7 @@ import express from "express"
 import { UserApp } from "./routes/user/user.routes.js";
 import { errorMiddleware } from "@middlewares/errorMidleware.js";
 import { TransactionApp } from "./routes/transaction/transaction.route.js";
+import { AuthApp } from "./routes/auth/auth.routes.js";
 
 const app = express();
 
@@ -9,6 +10,7 @@ app.use(express.json());
 
 app.use('/users',UserApp);
 app.use('/transaction',TransactionApp);
+app.use('/auth',AuthApp)
 
 app.use(errorMiddleware);
 
