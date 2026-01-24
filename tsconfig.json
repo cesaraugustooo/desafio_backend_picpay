@@ -50,7 +50,9 @@
       "@controllers/*": ["./src/aplication/controllers/*"],
       "@aplication/*": ["./src/aplication/*"],
       "@interfaces/*": ["./src/aplication/interfaces/*"],
-      "@factorys/*": ["./src/main/factorys/*"]
+      "@factorys/*": ["./src/main/factorys/*"],
+      "@http/*": ["./src/infraestructure/http/*"],
+      "@schemas/*": ["./src/infraestructure/schemas/*"],
     }
   }
 }
