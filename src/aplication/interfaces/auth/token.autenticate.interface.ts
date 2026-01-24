@@ -1,4 +1,4 @@
-interface Chains<T> {
+export interface Chains<T> {
     payload: T
 }
 
